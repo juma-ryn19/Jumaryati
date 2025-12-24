@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juma Collection | Pesan</title>
+    <link rel="stylesheet" href="j.css">
+</head>
+<body>
+    <header class="main-header">
+        <h2>KONFIRMASI PESANAN</h2>
+    </header>
+
+    <div class="main-layout">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="index.html">KATALOG</a></li>
+                <li><a href="order.html">PEMESANAN</a></li>
+                <li><a href="item.html">KATEGORI</a></li>
+                <li><a href="lv.html">LIVE</a></li>
+                <li><a href="contact.html">KONTAK</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="form-box">
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label>NAMA LENGKAP</label>
+                        <input type="text" id="nama" placeholder="Contoh: Siti Aminah">
+                    </div>
+                    <div class="form-group">
+                        <label>PILIH PRODUK</label>
+                        <select id="barang">
+                            <option value="Blouse">Premium Blouse - Rp 200.000</option>
+                            <option value="Rok">Elegant Skirt - Rp 185.000</option>
+                            <option value="Celana">Casual Pants - Rp 150.000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>JUMLAH</label>
+                        <input type="number" id="jumlah" min="1" value="1">
+                    </div>
+                    <button type="button" class="btn-pesan" onclick="buatPesanan()">KIRIM KE WHATSAPP</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function buatPesanan() {
+            const nama = document.getElementById('nama').value;
+            const barang = document.getElementById('barang').value;
+            const jumlah = document.getElementById('jumlah').value;
+            
+            if(!nama) { alert("Nama harus diisi!"); return; }
+
+            const pesan = `Halo Juma Collection, saya ingin memesan:\n\nNama: ${nama}\nProduk: ${barang}\nJumlah: ${jumlah}`;
+            const linkWA = `https://wa.me/081313553501?text=${encodeURIComponent(pesan)}`;
+            
+            window.open(linkWA, '_blank');
+        }
+    </script>
+</body>
+</html>
